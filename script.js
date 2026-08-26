@@ -179,6 +179,8 @@ correct:2
 ];  
 let current = 0;
 let score = 0;
+let ranking =
+JSON.parse(localStorage.getItem("ranking")) || [];
 let timeLeft = 30;
 let timer;
 
@@ -304,7 +306,44 @@ document.getElementById("playerName").value;
 const avatar =
 document.getElementById("avatar").value; 
 
-document.getElementById("finalScore").innerHTML =
+const player =
+document.getElementById("playerName").value;
+ 
+ranking.push({
+nome: player,
+avatar: avatar,
+pontos: score
+});
+ 
+ranking.sort((a,b)=>
+b.pontos-a.pontos
+);
+ 
+localStorage.setItem(
+"ranking",
+JSON.stringify(ranking)
+);
+
+let top3 =
+ranking.slice(0,3);
+let podium =
+ 
+`
+<hr>
+ 
+<h2>🏆 Pódio</h2>
+ 
+🥇 ${top3[0]?.avatar || ""} ${top3[0]?.nome || "-"}
+<br>
+
+🥈 ${top3[1]?.avatar || ""} ${top3[1]?.nome || "-"}
+<br>
+ 
+🥉 ${top3[2]?.avatar || ""} ${top3[2]?.nome || "-"}
+`; 
+ 
+document.getElementById("finalScore")
+.innerHTML += podium;
 `
 <h2>${avatar} ${name}</h2>
 
