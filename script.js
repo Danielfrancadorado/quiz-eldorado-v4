@@ -195,6 +195,12 @@ function loadQuestion(){
 
 const q = quiz[current];
 
+let percent =
+((current+1)/quiz.length)*100;
+
+document.getElementById("progress").style.width =
+percent + "%";
+ 
 document.getElementById("questionNumber").innerText =
 `Pergunta ${current+1}/${quiz.length}`;
 
