@@ -181,7 +181,7 @@ let current = 0;
 let score = 0;
 let ranking =
 JSON.parse(localStorage.getItem("ranking")) || [];
-let timeLeft = 30;
+let timeLeft = 15;
 let timer;
 
 function startQuiz(){
@@ -242,7 +242,7 @@ function startTimer(){
 
 clearInterval(timer);
 
-timeLeft = 30;
+timeLeft = 15;
 
 document.getElementById("timer").innerText =
 timeLeft;
@@ -295,6 +295,8 @@ finishQuiz();
 }
 
 function finishQuiz(){
+
+saveScore(); 
 
 document.getElementById("quizScreen").classList.add("hidden");
 
@@ -353,5 +355,42 @@ document.getElementById("finalScore")
 Obrigado por participar do Comitê de Segurança da Eldorado Brasil.
 </p>
 `;
+
+async function saveScore(){
+ 
+const name =
+document.getElementById("playerName").value;
+ 
+const avatar =
+document.getElementById("avatar").value;
+ 
+try{
+ 
+await window.addDoc(
+ 
+window.collection(
+window.db,
+"ranking"
+),
+ 
+{
+nome: name,
+avatar: avatar,
+pontos: score
+}
+ 
+);
+ 
+console.log("Pontuação salva com sucesso");
  
 }
+catch(error){
+ 
+console.error(
+"Erro ao salvar:",
+error
+);
+ 
+}
+ 
+} 
