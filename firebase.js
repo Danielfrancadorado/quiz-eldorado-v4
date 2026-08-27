@@ -1,0 +1,34 @@
+import { initializeApp } from 
+"https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  orderBy,
+  limit
+} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";  
+
+const firebaseConfig = {
+  apiKey: "SUA_API_KEY",
+  authDomain: "quiz-eldorado.firebaseapp.com",
+  projectId: "quiz-eldorado",
+  storageBucket: "quiz-eldorado.firebasestorage.app",
+  messagingSenderId: "232797126629",
+  appId: "1:232797126629:web:b45a3a418f6bfec272790c"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+window.db = db;
+window.collection = collection;
+window.addDoc = addDoc;
+window.getDocs = getDocs;
+window.query = query;
+window.orderBy = orderBy;
+window.limit = limit;
+`
