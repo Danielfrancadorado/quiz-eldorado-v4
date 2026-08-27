@@ -1,4 +1,4 @@
-import { initializeApp } from 
+import { initializeApp } from
 "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
 
 import {
@@ -9,15 +9,16 @@ import {
   query,
   orderBy,
   limit
-} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";  
+} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "SUA_API_KEY",
+  apiKey: "AIzaSyCY8-9dL0g-fumrPTALntFgw8kRJKBArWY",
   authDomain: "quiz-eldorado.firebaseapp.com",
   projectId: "quiz-eldorado",
   storageBucket: "quiz-eldorado.firebasestorage.app",
   messagingSenderId: "232797126629",
-  appId: "1:232797126629:web:b45a3a418f6bfec272790c"
+  appId: "1:232797126629:web:b45a3a418f6bfec272790c",
+  measurementId: "G-6BSQHSFYRX"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -31,4 +32,3 @@ window.getDocs = getDocs;
 window.query = query;
 window.orderBy = orderBy;
 window.limit = limit;
-`
