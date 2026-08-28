@@ -298,6 +298,8 @@ function finishQuiz(){
 
 saveScore(); 
 
+loadGlobalRanking();
+
 document.getElementById("quizScreen").classList.add("hidden");
 
 document.getElementById("resultScreen").classList.remove("hidden");
@@ -398,5 +400,64 @@ error
 }
 
 } // fecha saveScore
+
+async function loadGlobalRanking(){
+
+const rankingDiv =
+document.getElementById("rankingGlobal");
+
+const q =
+window.query(
+window.collection(window.db,"ranking"),
+window.orderBy("pontos","desc"),
+window.limit(10)
+);
+
+window.onSnapshot(q,(snapshot)=>{
+
+let html =
+
+`
+<hr>
+
+<h2>🏆 Ranking Geral Eldorado</h2>
+`;
+
+let posicao = 1;
+ 
+snapshot.forEach((doc)=>{
+
+const p = doc.data();
+
+html +=
+
+`
+<p>
+
+${posicao}º
+
+${p.avatar}
+
+${p.nome}
+
+-
+
+${p.pontos}
+
+pontos
+
+</p>
+
+`;
+
+posicao++;
+
+});
+
+rankingDiv.innerHTML = html;
+
+});
+
+}
 
 window.startQuiz = startQuiz;
