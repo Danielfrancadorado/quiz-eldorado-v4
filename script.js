@@ -296,6 +296,8 @@ finishQuiz();
 
 function finishQuiz(){
 
+ }
+
 saveScore(); 
 
 document.getElementById("quizScreen").classList.add("hidden");
@@ -344,8 +346,8 @@ let podium =
 🥉 ${top3[2]?.avatar || ""} ${top3[2]?.nome || "-"}
 `; 
  
-document.getElementById("finalScore")
-.innerHTML += podium;
+document.getElementById("finalScore").innerHTML = 
+
 `
 <h2>${avatar} ${name}</h2>
 
@@ -354,7 +356,11 @@ document.getElementById("finalScore")
 <p>
 Obrigado por participar do Comitê de Segurança da Eldorado Brasil.
 </p>
+
+${podium}
 `;
+
+}
 
 async function saveScore(){
  
@@ -392,5 +398,7 @@ error
 );
  
 }
- 
-} 
+
+} // fecha saveScore
+
+window.startQuiz = startQuiz;
