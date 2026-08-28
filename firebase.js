@@ -9,6 +9,7 @@ import {
   query,
   orderBy,
   limit 
+  onSnapshot
 } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -32,3 +33,4 @@ window.getDocs = getDocs;
 window.query = query;
 window.orderBy = orderBy;
 window.limit = limit;
+window.onSnapshot = onSnapshot;
