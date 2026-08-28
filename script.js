@@ -296,8 +296,6 @@ finishQuiz();
 
 function finishQuiz(){
 
- }
-
 saveScore(); 
 
 document.getElementById("quizScreen").classList.add("hidden");
